@@ -1,28 +1,68 @@
 <script>
-import PropsTest from '@/components/PropsTest.vue';
+import TitleBar from '@/components/TitleBar.vue';
+import ListItem from '@/components/ListItem.vue';
+import TimerBox from '@/components/TimerBox.vue';
+
 import { ref } from 'vue';
 export default {
-  components: {
-    PropsTest,
-  },
+  components: { TitleBar, ListItem, TimerBox },
   setup() {
-    const data = ref('hello moto');
-    return { data };
+    // const isOpen = ref(true);
+
+    // const HandListShow = () => {
+    //   isOpen.value = !isOpen.value;
+    // };
+
+    // const handCallBackFn = (num) => {
+    //   console.log('appEmit=>', num);
+    // };
+
+    // const handTimeOut = (num) => {
+    //   console.log('time is out', num.value);
+    // };
+
+    return { isOpen, HandListShow, handCallBackFn, handTimeOut };
   },
 };
 </script>
 
 <template>
-  <PropsTest :msg="data" />
+  <!-- <TitleBar :HandListShow="HandListShow" />
+  <ListItem :isOpen="isOpen" />
+  <TimerBox @TimeOut="handTimeOut" /> -->
+
+  <button>click</button>
+
+  <transition name="fade">
+    <div id="box"></div>
+  </transition>
 </template>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: slategray;
+}
+// #app {
+//   width: 400px;
+//   overflow: hidden;
+//   border: 1px solid #42b983;
+//   border-radius: 10px;
+// }
+
+#box {
+  width: 100px;
+  height: 100px;
+  background-color: red;
 }
 </style>
