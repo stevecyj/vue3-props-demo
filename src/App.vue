@@ -2,24 +2,26 @@
 import TitleBar from '@/components/TitleBar.vue';
 import ListItem from '@/components/ListItem.vue';
 import TimerBox from '@/components/TimerBox.vue';
+import EventBack from '@/components/EventBack.vue';
+import TemplateRefs from '@/components/TemplateRefs.vue';
 
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 export default {
-  components: { TitleBar, ListItem, TimerBox },
+  components: { TitleBar, ListItem, TimerBox, EventBack, TemplateRefs },
   setup() {
-    // const isOpen = ref(true);
+    const isOpen = ref(true);
 
-    // const HandListShow = () => {
-    //   isOpen.value = !isOpen.value;
-    // };
+    const HandListShow = () => {
+      isOpen.value = !isOpen.value;
+    };
 
-    // const handCallBackFn = (num) => {
-    //   console.log('appEmit=>', num);
-    // };
+    const handCallBackFn = (num) => {
+      console.log('appEmit=>', num);
+    };
 
-    // const handTimeOut = (num) => {
-    //   console.log('time is out', num.value);
-    // };
+    const handTimeOut = (num) => {
+      console.log('time is out', num.value);
+    };
 
     return { isOpen, HandListShow, handCallBackFn, handTimeOut };
   },
@@ -30,12 +32,13 @@ export default {
   <!-- <TitleBar :HandListShow="HandListShow" />
   <ListItem :isOpen="isOpen" />
   <TimerBox @TimeOut="handTimeOut" /> -->
+  <TemplateRefs />
 
-  <button>click</button>
+  <!-- <button>click</button>
 
   <transition name="fade">
     <div id="box"></div>
-  </transition>
+  </transition> -->
 </template>
 
 <style lang="scss">
